@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Fujihara : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -53,18 +54,22 @@ public class Fujihara : MonoBehaviour
             //以下ジョイコンRの場合
             //横持ちのときの上下のスティックが反応
             if(Input.GetAxis("Horizontal1") < 0){
+                
                 Debug.Log("上"+Input.GetAxis("Horizontal1"));
             }
             else{
+                
                 Debug.Log("下"+Input.GetAxis("Horizontal1"));
             }
         }
         if(Input.GetAxis("Vertical1") != 0){
             //横持ちのときの左右のスティックが反応
             if(Input.GetAxis("Vertical1") < 0){
+                
                 Debug.Log("左"+Input.GetAxis("Vertical1"));
             }
             else{
+                
                 Debug.Log("右"+Input.GetAxis("Vertical1"));
             }
         }
