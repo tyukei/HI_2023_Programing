@@ -2,10 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Fujihara : MonoBehaviour
 {
-    
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -78,16 +77,18 @@ public class Fujihara : MonoBehaviour
         
 
     }
-    /*private void SwitchControllerAnyKeyDown(){
+    private void SwitchControllerAnyKeyDown(){
         if (Input.anyKeyDown) {
             foreach (SwitchController code in Enum.GetValues(typeof(SwitchController))) {
                 if (Input.GetKeyDown ((KeyCode)code)) Debug.Log(code);
             }
         }
-    }*/
-
+    }
+*/
 }
 
+
+/*
 public enum SwitchController{
     A = 350,
     B = 352,
@@ -112,3 +113,4 @@ public enum SwitchController{
     HOME = 362,
     Capture = 383 
 }
+*/
