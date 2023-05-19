@@ -12,12 +12,15 @@ public class MazeStick : MonoBehaviour
   int r; //乱数の値
   Object wall; //壁オブジェクト
   GameObject wallgo; //壁のゲームオブジェクト
+  Object flag; // 旗オブジェクト
+  GameObject flaggo; //旗のゲームオブジェクト
 
   void Start()
   {
     //Random.InitState(1);
     int[,] field = new int[max_z,max_x]; //フィールド（0が通路で、1が壁。）
     wall = Resources.Load("Wall"); //壁オブジェクトを読み込む。
+    flag = Resources.Load("Flag"); //旗オブジェクトを読み込む。
     
     //通路（0）の生成
     for(z=0; z<max_z; z=z+1) //フィールドの縦幅の分だけループする。
@@ -138,7 +141,8 @@ public class MazeStick : MonoBehaviour
     }
 
     field[0,1] = 0; //スタート地点の壁を撤去する。
-    field[max_z-1,max_x-2] = 0; //ゴール地点の壁を撤去する。
+    //field[max_z-1,max_x-2] = 0; //ゴール地点の壁を撤去する。
+    field[max_z-1,max_x-2] = 2; //ゴール地点に旗を置く準備をする。
 
     //壁の配置
     for(z=0; z<max_z; z=z+1) //フィールドの縦幅の分だけループする。
@@ -152,6 +156,12 @@ public class MazeStick : MonoBehaviour
         else if(field[z,x]==1) //壁なら
         {
           wallgo = (GameObject)Instantiate(wall, new Vector3(5.0f*x,5.0f,5.0f*z), Quaternion.identity); //壁を配置する。
+        }
+        else if(field[z,x]==2) // 旗なら
+        {
+          //field[max_z-1, max_x-2] = 0;
+          // 壁っぽい旗
+          flaggo = (GameObject)Instantiate(flag, new Vector3(5.0f*x,5.0f,5.0f*z), Quaternion.identity); //壁を配置する。    
         }
       }
     }
