@@ -13,3 +13,7 @@ We are HI and DS2 member at kit
 We make project followed by this projects
 
 [https://github.com/users/tyukei/projects/5/views/1?layout=board](https://github.com/users/tyukei/projects/5/views/1?layout=board)
+
+# Wiki
+Share your information 
+https://github.com/tyukei/HI_2023_Programing/wiki
