@@ -8,7 +8,7 @@ public class CameraManager : MonoBehaviour
   Camera cam; //Main CameraのCamera
   Rigidbody hrb; //Human（親オブジェクト）のRigidbody
   float speed;
-  int speed_flag;
+  //int speed_flag;
   
   void Start()
   {
@@ -16,7 +16,7 @@ public class CameraManager : MonoBehaviour
     cam = this.gameObject.GetComponent<Camera>(); //Main CameraのCameraを取得する。
     hrb = transform.parent.gameObject.GetComponent<Rigidbody>(); //Human（親オブジェクト）のRigidbodyを取得する。
     speed = 3.0f;
-    speed_flag = 0;
+    //speed_flag = 0;
   }
 
   void FixedUpdate()
@@ -26,19 +26,44 @@ public class CameraManager : MonoBehaviour
     //edit>project settingsの設定確認をするように
     if(Input.GetAxis("Horizontal1") != 0){
 
-        //以下ジョイコンRの場合
-        //横持ちのときの上下のスティックが反応
-        if(Input.GetAxis("Horizontal1") < 0){
-            hrb.position = hrb.position + (transform.forward*Time.deltaTime*speed); //人を前進させる。
-            Debug.Log("上"+Input.GetAxis("Horizontal1"));
-        }
-        else{
-            hrb.position = hrb.position - (transform.forward*Time.deltaTime*speed); //人を後ずさりさせる。
-            Debug.Log("下"+Input.GetAxis("Horizontal1"));
-        }
+      //以下ジョイコンRの場合
+      //横持ちのときの上下のスティックが反応
+      // スティック操作時, 下(A)ボタンの押下の有無で, 速度を変える
+      if(Input.GetKey(KeyCode.Joystick1Button0) || Input.GetKey(KeyCode.Joystick2Button0)){
+          //ジョイコンLの横持ちの時の下ボタンの反応を確認 or ジョイコンRのAボタン
+          speed = 14.0f;
+          Debug.Log("加速");           
+      }
+      else{
+          speed = 3.0f;
+          Debug.Log("通常");           
+      }
+
+      // スティックの倒す向きで動く方向を変える
+      if(Input.GetAxis("Horizontal1") < 0){
+          hrb.position = hrb.position + (transform.forward*Time.deltaTime*speed); //人を前進させる。
+          Debug.Log("上"+Input.GetAxis("Horizontal1"));
+      }
+      else{
+          hrb.position = hrb.position - (transform.forward*Time.deltaTime*speed); //人を後ずさりさせる。
+          Debug.Log("下"+Input.GetAxis("Horizontal1"));
+      }
     }
     if(Input.GetAxis("Vertical1") != 0){
         //横持ちのときの左右のスティックが反応
+
+        // スティック操作時, 下(A)ボタンの押下の有無で, 速度を変える
+        if(Input.GetKey(KeyCode.Joystick1Button0) || Input.GetKey(KeyCode.Joystick2Button0)){
+            //ジョイコンLの横持ちの時の下ボタンの反応を確認 or ジョイコンRのAボタン
+            speed = 14.0f;
+            Debug.Log("加速");           
+        }
+        else{
+            speed = 3.0f;
+            Debug.Log("通常");           
+        }
+
+        // スティックの倒す向きで動く方向を変える
         if(Input.GetAxis("Vertical1") < 0){
             hrb.position = hrb.position - (transform.right*Time.deltaTime*speed); //人を左へカニ歩きさせる。
             Debug.Log("左"+Input.GetAxis("Vertical1"));
@@ -66,7 +91,7 @@ public class CameraManager : MonoBehaviour
       hrb.position = hrb.position + (transform.right*Time.deltaTime*speed); //人を右へカニ歩きさせる。
     }
 
-    
+    /*
     if(Input.GetKey(KeyCode.Joystick1Button0) || Input.GetKey(KeyCode.Joystick2Button0)){
           //ジョイコンLの横持ちの時の下ボタンの反応を確認 or ジョイコンRのAボタン
           
@@ -86,7 +111,7 @@ public class CameraManager : MonoBehaviour
             Debug.Log("減速");
           }
           
-      }
+      }*/
 
       if(Input.GetKey(KeyCode.Joystick1Button1) || Input.GetKey(KeyCode.Joystick2Button1)){
           //ジョイコンLの横持ちの時の右ボタンの反応を確認 or ジョイコンRのXボタン
