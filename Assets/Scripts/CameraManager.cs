@@ -32,21 +32,21 @@ public class CameraManager : MonoBehaviour
       if(Input.GetKey(KeyCode.Joystick1Button0) || Input.GetKey(KeyCode.Joystick2Button0)){
           //ジョイコンLの横持ちの時の下ボタンの反応を確認 or ジョイコンRのAボタン
           speed = 14.0f;
-          Debug.Log("加速");           
+          //Debug.Log("加速");           
       }
       else{
           speed = 3.0f;
-          Debug.Log("通常");           
+          //Debug.Log("通常");           
       }
 
       // スティックの倒す向きで動く方向を変える
       if(Input.GetAxis("Horizontal1") < 0){
           hrb.position = hrb.position + (transform.forward*Time.deltaTime*speed); //人を前進させる。
-          Debug.Log("上"+Input.GetAxis("Horizontal1"));
+          //Debug.Log("上"+Input.GetAxis("Horizontal1"));
       }
       else{
           hrb.position = hrb.position - (transform.forward*Time.deltaTime*speed); //人を後ずさりさせる。
-          Debug.Log("下"+Input.GetAxis("Horizontal1"));
+          //Debug.Log("下"+Input.GetAxis("Horizontal1"));
       }
     }
     if(Input.GetAxis("Vertical1") != 0){
@@ -56,21 +56,21 @@ public class CameraManager : MonoBehaviour
         if(Input.GetKey(KeyCode.Joystick1Button0) || Input.GetKey(KeyCode.Joystick2Button0)){
             //ジョイコンLの横持ちの時の下ボタンの反応を確認 or ジョイコンRのAボタン
             speed = 14.0f;
-            Debug.Log("加速");           
+            //Debug.Log("加速");           
         }
         else{
             speed = 3.0f;
-            Debug.Log("通常");           
+            //Debug.Log("通常");           
         }
 
         // スティックの倒す向きで動く方向を変える
         if(Input.GetAxis("Vertical1") < 0){
             hrb.position = hrb.position - (transform.right*Time.deltaTime*speed); //人を左へカニ歩きさせる。
-            Debug.Log("左"+Input.GetAxis("Vertical1"));
+            //Debug.Log("左"+Input.GetAxis("Vertical1"));
         }
         else{
             hrb.position = hrb.position + (transform.right*Time.deltaTime*speed); //人を右へカニ歩きさせる。
-            Debug.Log("右"+Input.GetAxis("Vertical1"));
+            //Debug.Log("右"+Input.GetAxis("Vertical1"));
         }
     }
 

@@ -15,7 +15,7 @@ public class MazeStick : MonoBehaviour
 
   void Start()
   {
-    Random.InitState(1);
+    //Random.InitState(1);
     int[,] field = new int[max_z,max_x]; //フィールド（0が通路で、1が壁。）
     wall = Resources.Load("Wall"); //壁オブジェクトを読み込む。
     
