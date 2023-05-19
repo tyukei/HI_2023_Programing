@@ -31,7 +31,7 @@ public class CameraManager : MonoBehaviour
       // スティック操作時, 下(A)ボタンの押下の有無で, 速度を変える
       if(Input.GetKey(KeyCode.Joystick1Button0) || Input.GetKey(KeyCode.Joystick2Button0)){
           //ジョイコンLの横持ちの時の下ボタンの反応を確認 or ジョイコンRのAボタン
-          speed = 14.0f;
+          speed = 10.0f;
           //Debug.Log("加速");           
       }
       else{
@@ -55,7 +55,7 @@ public class CameraManager : MonoBehaviour
         // スティック操作時, 下(A)ボタンの押下の有無で, 速度を変える
         if(Input.GetKey(KeyCode.Joystick1Button0) || Input.GetKey(KeyCode.Joystick2Button0)){
             //ジョイコンLの横持ちの時の下ボタンの反応を確認 or ジョイコンRのAボタン
-            speed = 14.0f;
+            speed = 10.0f;
             //Debug.Log("加速");           
         }
         else{
