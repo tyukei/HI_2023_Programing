@@ -40,6 +40,7 @@ public class BallController : MonoBehaviour
         // 流れとしては迷路作成してから、1人称視点にしたほうがよさそう
         // なお一度feature/tanakaにコミット&プルをしてからもう一回実行したら、
         // ArgumentException Input Axis Horizontal1 is not setupと出てきてエラーとなった
+        /*
         if(Input.GetAxis("Horizontal1") != 0){
 
             //以下ジョイコンRの場合
@@ -60,5 +61,6 @@ public class BallController : MonoBehaviour
                 Debug.Log("右"+Input.GetAxis("Vertical1"));
             }
         }
+        */
     }
 }
