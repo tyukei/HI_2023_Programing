@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MazeStick : MonoBehaviour
 {
@@ -165,5 +166,15 @@ public class MazeStick : MonoBehaviour
         }
       }
     }
+  }
+  /*
+  void OnTriggerEnter2D(Collider2D other){
+    // otherパラメータは衝突した相手のコライダー情報を含みます
+    Debug.Log(1);
+    //SceneManager.LoadScene("ClearScene");
+  }
+  */
+  void OnCollisionEnter(Collision collision) {
+    Debug.Log(1);
   }
 }

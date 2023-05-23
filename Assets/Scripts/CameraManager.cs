@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraManager : MonoBehaviour
 {
   Transform tf; //Main CameraのTransform
   Camera cam; //Main CameraのCamera
   Rigidbody hrb; //Human（親オブジェクト）のRigidbody
+  //Rigidbody2D hrb;
   float speed;
   //int speed_flag;
   
