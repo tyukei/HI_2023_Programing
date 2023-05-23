@@ -187,4 +187,7 @@ public class CameraManager : MonoBehaviour
     SceneManager.LoadScene("ClearScene");
   }
   */
+  void OnCollisionEnter(Collision collision){
+      Debug.Log("Hit"); // ログを表示する
+  }
 }
