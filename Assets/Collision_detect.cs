@@ -19,11 +19,7 @@ public class Collision_detect : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        //ボールにぶつかったとき
-        //Debug.Log("ぶつかった！");
-        //Debug.Log(other.gameObject.tag);
         if(other.gameObject.tag == "Player"){
-            Debug.Log("Hit");
             SceneManager.LoadScene("ClearScene");
         }
     }
