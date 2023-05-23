@@ -8,6 +8,7 @@ We are HI and DS2 member at kit
 - [Eztas](https://github.com/Eztas)
 - [fu990114](https://github.com/fu990114)
 - [saltcabbage](https://github.com/saltcabbage)
+- [hagetouhi1108](https://github.com/hagetouhi1108)
 
 # Projects
 We make project followed by this projects
