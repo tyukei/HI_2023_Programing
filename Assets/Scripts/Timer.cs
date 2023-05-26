@@ -20,7 +20,8 @@ public class Timer : MonoBehaviour
         time += Time.deltaTime;
         //}
 
-        int t = Mathf.FloorToInt(time);
+        // float t = Mathf.FloorToInt(time);
+        float t =  Mathf.Floor(time * 100) / 100;
         Text uiText = GetComponent<Text> ();
         uiText.text = "Time : " + t;
     }
