@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Collision_detect : MonoBehaviour
+public class stamp_detect : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -20,7 +19,8 @@ public class Collision_detect : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Player"){
-            SceneManager.LoadScene("ClearScene");
+            Debug.Log("Stamp");
+            transform.Rotate(new Vector3(0, 60, 0) * Time.deltaTime);
         }
     }
 }

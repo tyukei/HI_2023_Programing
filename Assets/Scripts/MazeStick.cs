@@ -156,7 +156,7 @@ public class MazeStick : MonoBehaviour
         {
           //何も配置しない。
           if(((z+x) % 10) == 3){
-            holego = (GameObject)Instantiate(hole, new Vector3(5.0f*x,0.0f,5.0f*z), Quaternion.identity); //ゴールを配置する。
+            holego = (GameObject)Instantiate(hole, new Vector3(5.0f*x,0.0f,5.0f*z), Quaternion.identity); //穴(暗転オブジェクト)を配置する。
           }
         }
         else if(field[z,x]==1) //壁なら
