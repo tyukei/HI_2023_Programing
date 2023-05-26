@@ -124,6 +124,7 @@ public class CameraManager : MonoBehaviour
       }
       if(Input.GetKey(KeyCode.Joystick1Button2) || Input.GetKey(KeyCode.Joystick2Button2)){
           //ジョイコンLの横持ちの時の左ボタンの反応を確認 or ジョイコンRのBボタン
+          
       }
       if(Input.GetKey(KeyCode.Joystick1Button3) || Input.GetKey(KeyCode.Joystick2Button3)){
           //ジョイコンLの横持ちの時の上ボタンの反応を確認 or ジョイコンRのYボタン

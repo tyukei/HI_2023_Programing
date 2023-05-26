@@ -6,23 +6,30 @@ public class Pause : MonoBehaviour
 {
     [SerializeField] private Timer timer;
     [SerializeField] private GameObject pausePanel;
-    
+
     void Update(){
-        if(Input.GetKeyDown(KeyCode.LeftArrow)){
+        if(KeyDef.Left()){
             OnClickLeftArrow();
         }
 
-        if(Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKeyDown(KeyCode.LeftArrow)){
+        if(KeyDef.R() && KeyDef.L()){
             OnClickLeftRight();
         }
     }
     public void OnClickLeftArrow(){
+        if(GameObject.FindGameObjectsWithTag("Pause").Length > 0){
+            return;
+        }
         Instantiate(pausePanel);
         timer.Pause();
     }
     public void OnClickLeftRight(){
         timer.Resume();
-        Destroy(pausePanel);
+        // destory all Pause_Canvas(Clone)
+        GameObject[] pauseCanvas = GameObject.FindGameObjectsWithTag("Pause");
+        foreach(GameObject obj in pauseCanvas){
+            Destroy(obj);
+        }
     }
 
 }
