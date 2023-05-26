@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
@@ -13,7 +14,11 @@ public class Pause : MonoBehaviour
         }
 
         if(KeyDef.R() && KeyDef.L()){
-            OnClickLeftRight();
+            OnClickLR();
+        }
+
+        if(KeyDef.Right()){
+            OnClickRightArrow();
         }
     }
     public void OnClickLeftArrow(){
@@ -23,7 +28,16 @@ public class Pause : MonoBehaviour
         Instantiate(pausePanel);
         timer.Pause();
     }
-    public void OnClickLeftRight(){
+    public void OnClickLR(){
+        timer.Resume();
+        // destory all Pause_Canvas(Clone)
+        GameObject[] pauseCanvas = GameObject.FindGameObjectsWithTag("Pause");
+        foreach(GameObject obj in pauseCanvas){
+            Destroy(obj);
+        }
+        SceneManager.LoadScene("StartScene");
+    }
+    public void OnClickRightArrow(){
         timer.Resume();
         // destory all Pause_Canvas(Clone)
         GameObject[] pauseCanvas = GameObject.FindGameObjectsWithTag("Pause");
@@ -31,5 +45,4 @@ public class Pause : MonoBehaviour
             Destroy(obj);
         }
     }
-
 }
