@@ -19,8 +19,10 @@ public class Collision_detect : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        /*
         if(other.gameObject.tag == "Player"){
             SceneManager.LoadScene("ClearScene");
         }
+        */
     }
 }

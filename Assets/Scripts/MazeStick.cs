@@ -12,15 +12,18 @@ public class MazeStick : MonoBehaviour
   int r; //乱数の値
   Object wall; //壁オブジェクト
   GameObject wallgo; //壁のゲームオブジェクト
-  Object flag; // 旗オブジェクト
-  GameObject flaggo; //旗のゲームオブジェクト
+  Object flag; // 旗(ゴール)オブジェクト
+  GameObject flaggo; //旗(ゴール)のゲームオブジェクト
+  Object hole; // 穴(暗転イベント)オブジェクト
+  GameObject holego; // 穴(暗転イベント)のゲームオブジェクト
 
   void Start()
   {
     //Random.InitState(1);
     int[,] field = new int[max_z,max_x]; //フィールド（0が通路で、1が壁。）
     wall = Resources.Load("Wall"); //壁オブジェクトを読み込む。
-    flag = Resources.Load("Flag"); //旗オブジェクトを読み込む。
+    flag = Resources.Load("Flag"); //旗(ゴール)オブジェクトを読み込む。
+    hole = Resources.Load("Blackhole"); //旗(ゴール)オブジェクトを読み込む。
     
     //通路（0）の生成
     for(z=0; z<max_z; z=z+1) //フィールドの縦幅の分だけループする。
@@ -152,6 +155,9 @@ public class MazeStick : MonoBehaviour
         if(field[z,x]==0) //通路なら
         {
           //何も配置しない。
+          if(((z+x) % 10) == 3){
+            holego = (GameObject)Instantiate(hole, new Vector3(5.0f*x,0.0f,5.0f*z), Quaternion.identity); //ゴールを配置する。
+          }
         }
         else if(field[z,x]==1) //壁なら
         {
@@ -161,7 +167,7 @@ public class MazeStick : MonoBehaviour
         {
           //field[max_z-1, max_x-2] = 0;
           // 壁っぽい旗
-          flaggo = (GameObject)Instantiate(flag, new Vector3(5.0f*x,5.0f,5.0f*z), Quaternion.identity); //壁を配置する。    
+          flaggo = (GameObject)Instantiate(flag, new Vector3(5.0f*x,5.0f,5.0f*z), Quaternion.identity); //ゴールを配置する。    
         }
       }
     }
