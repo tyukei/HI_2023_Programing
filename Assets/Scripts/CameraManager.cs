@@ -9,6 +9,8 @@ public class CameraManager : MonoBehaviour
   Camera cam; //Main CameraのCamera
   Rigidbody hrb; //Human（親オブジェクト）のRigidbody
   float speed;
+  float jumpPower;
+  private bool isGround;
   //int speed_flag;
   
   void Start()
@@ -17,6 +19,8 @@ public class CameraManager : MonoBehaviour
     cam = this.gameObject.GetComponent<Camera>(); //Main CameraのCameraを取得する。
     hrb = transform.parent.gameObject.GetComponent<Rigidbody>(); //Human（親オブジェクト）のRigidbodyを取得する。
     speed = 3.0f;
+    jumpPower = 10.0f;
+    isGround = true;
     //speed_flag = 0;
   }
 
@@ -123,6 +127,16 @@ public class CameraManager : MonoBehaviour
       }
       if(Input.GetKey(KeyCode.Joystick1Button3) || Input.GetKey(KeyCode.Joystick2Button3)){
           //ジョイコンLの横持ちの時の上ボタンの反応を確認 or ジョイコンRのYボタン
+          //Debug.Log("上押した");
+          //hrb.AddForce(new Vector3(0, 100, 0));
+          //hrb.velocity = new Vector3(hrb.velocity.x, 2, hrb.velocity.z);
+          //hrb.AddForce(new Vector3(0.0f, 200.0f, 0.0f), ForceMode.Impulse);
+          //hrb.position = hrb.position + (transform.up*jumpPower);
+          //hrb.AddForce(transform.up * jumpPower, ForceMode.Impulse);
+          if(isGround){
+            hrb.AddForce(new Vector3(0.0f, 10.0f, 0.0f), ForceMode.Impulse);
+            isGround = false;
+          }
       }
       if(Input.GetKey(KeyCode.Joystick1Button10) || Input.GetKey(KeyCode.Joystick2Button10)
       || Input.GetKey(KeyCode.Joystick1Button11) || Input.GetKey(KeyCode.Joystick2Button11)){
@@ -163,31 +177,15 @@ public class CameraManager : MonoBehaviour
     }
   }
   /*
-  void OnControllerColliderHit(ControllerColliderHit hit){
-    Rigidbody body = hit.collider.attachedRigidbody;
-
-    // no rigidbody
-    if (body == null || body.isKinematic)
-        return;
-
-    // We dont want to push objects below us
-    if (hit.moveDirection.y < -0.3f)
-        return;
-
-    // Calculate push direction from move direction,
-    // we only push objects to the sides never up and down
-    Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-
-    // If you know how fast your character is trying to move,
-    // then you can also multiply the push velocity by that.
-
-    // Apply the push
-    body.velocity = pushDir * pushPower;
-    //Debug.Log("1");
-    SceneManager.LoadScene("ClearScene");
+  void OnTriggerStay(Collider other){
+      //if (other.gameObject.name == "Plane")
+      //    isGround = true;
+      Debug.Log(other.gameObject.name);
+  }
+  void OnTriggerExit(Collider other){
+      //if (other.gameObject.name == "Plane")
+      //   isGround = false;
+      Debug.Log(other.gameObject.name);
   }
   */
-  void OnCollisionEnter(Collision collision){
-      Debug.Log("Hit"); // ログを表示する
-  }
 }
