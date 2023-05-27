@@ -35,4 +35,7 @@ public class KeyDef
     public static bool R(){
         return Input.GetKey(KeyCode.Joystick1Button5);
     }
+    public static bool ALLKey(){
+        return Up() || Down() || Right() || Left() || StickUp() || StickDown() || StickRight() || StickLeft() || L() || R();
+    }
 }
