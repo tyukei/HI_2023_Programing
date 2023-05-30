@@ -16,17 +16,6 @@ public class DisplayBestTimeInResult : MonoBehaviour
         if(besttime == 0){
             besttime = float.PositiveInfinity;
         }
-    }
-
-    void OnDestroy(){
-        PlayerPrefs.SetFloat("BESTTIME", besttime);
-        PlayerPrefs.Save();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Text uiText = GetComponent<Text> ();
 
         if(goaltime < besttime){ //新記録を更新していたら
             besttime = goaltime;
@@ -34,7 +23,19 @@ public class DisplayBestTimeInResult : MonoBehaviour
             //何もしない
         }
 
+        Text uiText = GetComponent<Text> ();
         float t =  Mathf.Floor(besttime * 100) / 100;   //ミリ秒表示
         uiText.text = "BESTTIME : " + t;
+
+        PlayerPrefs.SetFloat("BESTTIME", besttime); //ベストタイムを保存
+        PlayerPrefs.Save();
+    }
+
+    void OnDestroy(){
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
     }
 }
