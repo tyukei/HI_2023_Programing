@@ -8,17 +8,30 @@ public class Pause : MonoBehaviour
     [SerializeField] private Timer timer;
     [SerializeField] private GameObject pausePanel;
 
+    private bool isLeft;
+
+    void Start(){
+        isLeft = false;
+    }
+
     void Update(){
         if(KeyDef.Left()){
+            isLeft = true;
             OnClickLeftArrow();
         }
 
-        if(KeyDef.R() && KeyDef.L()){
-            OnClickLR();
-        }
+        if(isLeft == true){
+            if(KeyDef.R() && KeyDef.L()){
+                isLeft = false;
+                OnClickLR();
 
-        if(KeyDef.Right()){
-            OnClickRightArrow();
+            }
+
+            if(KeyDef.Right()){
+                isLeft = false;
+                OnClickRightArrow();
+            }
+
         }
     }
     public void OnClickLeftArrow(){
