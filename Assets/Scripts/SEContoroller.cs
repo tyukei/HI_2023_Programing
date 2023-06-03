@@ -37,6 +37,7 @@ public class SEContoroller : MonoBehaviour
     
     IEnumerator PlaySE(AudioClip clip)
     {
+        Debug.Log("PlaySE");
         isSE = true;
         audioSource.PlayOneShot(clip);
         yield return new WaitForSeconds(clip.length);

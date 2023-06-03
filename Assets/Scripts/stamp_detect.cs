@@ -11,12 +11,15 @@ public class stamp_detect : MonoBehaviour
     private float alpha;           //パネルのalpha値取得変数
 
     private bool fadeout;          //フェードアウトのフラグ変数
+    
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         alpha = fadealpha.color.a;
         fadeout = true;  
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,7 +31,6 @@ public class stamp_detect : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Player"){
-            Debug.Log("Stamp");
             //transform.Rotate(new Vector3(0, 60, 0) * Time.deltaTime);
             StartCoroutine(BecomeDark_Light());
         }
@@ -39,6 +41,7 @@ public class stamp_detect : MonoBehaviour
         if(fadeout == true){
             int black_time = 5;
             fadeout = false;
+            audioSource.PlayOneShot(audioSource.clip);
             while(alpha <= 1){
                 alpha += 0.1f;
                 fadealpha.color = new Color(0, 0, 0, alpha);
