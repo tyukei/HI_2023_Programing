@@ -737,7 +737,6 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194231}
-  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -823,18 +822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4f3377258b2504e9adb719399d15cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &963194230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cd46013f89fe504190d4f140f544b43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &963194231
 AudioSource:
   m_ObjectHideFlags: 0
@@ -845,7 +832,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4dd1d3852022c9b4998d13945ebc6507, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1107,6 +1094,9 @@ GameObject:
   - component: {fileID: 1565068897}
   - component: {fileID: 1565068898}
   - component: {fileID: 1565068899}
+  - component: {fileID: 1565068900}
+  - component: {fileID: 1565068901}
+  - component: {fileID: 1565068902}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1157,6 +1147,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 313250655}
   pausePanel: {fileID: 1429048496798371950, guid: 68dc32ec1178e8745b9fcd4f339f70cf, type: 3}
+--- !u!114 &1565068900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565068896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5013c2c5437fdf94380041d507a08264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 963194231}
+  walkSE: {fileID: 8300000, guid: 4dd1d3852022c9b4998d13945ebc6507, type: 3}
+  jumpSE: {fileID: 8300000, guid: 8cde879eaf23457448bf37e1ea2246fe, type: 3}
+  dropSE: {fileID: 8300000, guid: 136e04a40d4bdff4883593eb695e61d8, type: 3}
+  clearSE: {fileID: 8300000, guid: eb8237fe254d3bf48a358432a37e3f3b, type: 3}
+--- !u!114 &1565068901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565068896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15731bd971bc0e1449f5e077400cccfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seContoroller: {fileID: 1565068900}
+--- !u!114 &1565068902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565068896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd19b220fe234ce4b8bb97e2ddd32507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seContoroller: {fileID: 1565068900}
 --- !u!1 &1722024092 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5931409238673079242, guid: c6f9f05719d23864faf5321f59b6ba5a, type: 3}

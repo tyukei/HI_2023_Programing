@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class WalkSE : MonoBehaviour
 {
-    private AudioSource audioSource;
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
+    [SerializeField] SEContoroller seContoroller;
+    // Update is called once per frame
     void Update()
     {
-        if (KeyDef.ALLStick())
-        {
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
+        if(KeyDef.ALLStick()){
+            Debug.Log("WalkSE");
+            seContoroller.PlayWalkSE();
         }
-
     }
 }
