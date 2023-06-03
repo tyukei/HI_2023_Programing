@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class jump : MonoBehaviour
 {
-    public CameraManager human_eye;
+    //public CameraManager human_eye;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,7 @@ public class jump : MonoBehaviour
 
     */
     void OnCollisionEnter(Collision other){
-        human_eye.isGround = true;
+        //human_eye.isGround = true;
         //Debug.Log(other.gameObject.tag); // untaged
     }
 }

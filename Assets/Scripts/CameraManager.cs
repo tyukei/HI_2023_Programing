@@ -128,10 +128,11 @@ public class CameraManager : MonoBehaviour
       }
       if(Input.GetKey(KeyCode.Joystick1Button3) || Input.GetKey(KeyCode.Joystick2Button3)){
           //ジョイコンLの横持ちの時の上ボタンの反応を確認 or ジョイコンRのYボタン
-          //Debug.Log(isGround); // isGroundが複数回反応して、trueにならない
+          Debug.Log(isGround); // isGroundが複数回反応して、trueにならない
           if (isGround){
             isGround = false;
             hrb.AddForce(new Vector3(0.0f, jumpPower, 0.0f), ForceMode.Impulse);
+            Invoke("set_is_Ground", 3.0f); // 実際に地面についていようがいまいが, 3秒後に再ジャンプ可能
           }
       }
       if(Input.GetKey(KeyCode.Joystick1Button10) || Input.GetKey(KeyCode.Joystick2Button10)
@@ -184,4 +185,7 @@ public class CameraManager : MonoBehaviour
       Debug.Log(other.gameObject.name);
   }
   */
+  void set_is_Ground(){
+    isGround = true;
+  }
 }
