@@ -24,7 +24,7 @@ public class MakeWorld : MonoBehaviour
     wall[0] = Resources.Load("Wallout1"); //壁オブジェクトを読み込む。
     wall[1] = Resources.Load("Wallin1"); //壁オブジェクトを読み込む。
     flag = Resources.Load("Flag"); //旗(ゴール)オブジェクトを読み込む。
-    hole = Resources.Load("hole"); //旗(ゴール)オブジェクトを読み込む。
+    hole = Resources.Load("HoleReal"); //旗(ゴール)オブジェクトを読み込む。
     
     //通路（0）の生成
     for(z=0; z<max_z; z=z+1) //フィールドの縦幅の分だけループする。
