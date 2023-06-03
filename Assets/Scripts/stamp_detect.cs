@@ -28,7 +28,7 @@ public class stamp_detect : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Player"){
-            Debug.Log("Stamp");
+            //Debug.Log("Stamp");
             //transform.Rotate(new Vector3(0, 60, 0) * Time.deltaTime);
             StartCoroutine(BecomeDark_Light());
         }
