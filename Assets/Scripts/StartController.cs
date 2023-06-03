@@ -43,6 +43,6 @@ public class StartController : MonoBehaviour
     }
 
     public void OnClickStart(){
-       SceneManager.LoadScene("GameScene");
+       SceneManager.LoadScene("Game2Scene");
     }
 }

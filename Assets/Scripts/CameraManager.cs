@@ -134,10 +134,7 @@ public class CameraManager : MonoBehaviour
           //hrb.AddForce(new Vector3(0.0f, 200.0f, 0.0f), ForceMode.Impulse);
           //hrb.position = hrb.position + (transform.up*jumpPower);
           //hrb.AddForce(transform.up * jumpPower, ForceMode.Impulse);
-          if(isGround){
-            hrb.AddForce(new Vector3(0.0f, 10.0f, 0.0f), ForceMode.Impulse);
-            isGround = false;
-          }
+          hrb.AddForce(new Vector3(0.0f, 10.0f, 0.0f), ForceMode.Impulse);
       }
       if(Input.GetKey(KeyCode.Joystick1Button10) || Input.GetKey(KeyCode.Joystick2Button10)
       || Input.GetKey(KeyCode.Joystick1Button11) || Input.GetKey(KeyCode.Joystick2Button11)){
