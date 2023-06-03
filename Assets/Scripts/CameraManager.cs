@@ -19,8 +19,8 @@ public class CameraManager : MonoBehaviour
     cam = this.gameObject.GetComponent<Camera>(); //Main CameraのCameraを取得する。
     hrb = transform.parent.gameObject.GetComponent<Rigidbody>(); //Human（親オブジェクト）のRigidbodyを取得する。
     speed = 3.0f;
-    jumpPower = 10.0f;
-    isGround = true;
+    jumpPower = 5.0f;
+    //isGround = true;
     //speed_flag = 0;
   }
 
@@ -134,7 +134,7 @@ public class CameraManager : MonoBehaviour
           //hrb.AddForce(new Vector3(0.0f, 200.0f, 0.0f), ForceMode.Impulse);
           //hrb.position = hrb.position + (transform.up*jumpPower);
           //hrb.AddForce(transform.up * jumpPower, ForceMode.Impulse);
-          hrb.AddForce(new Vector3(0.0f, 10.0f, 0.0f), ForceMode.Impulse);
+          hrb.AddForce(new Vector3(0.0f, jumpPower, 0.0f), ForceMode.Impulse);
       }
       if(Input.GetKey(KeyCode.Joystick1Button10) || Input.GetKey(KeyCode.Joystick2Button10)
       || Input.GetKey(KeyCode.Joystick1Button11) || Input.GetKey(KeyCode.Joystick2Button11)){
