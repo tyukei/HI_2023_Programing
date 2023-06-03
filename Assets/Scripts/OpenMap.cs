@@ -9,7 +9,6 @@ public class OpenMap : MonoBehaviour
     public static bool watchedAd = false;
     [SerializeField] private GameObject advertisement;
     [SerializeField] private GameObject advertisementBtn;
-    [SerializeField] private GameObject hideMap;
     [SerializeField] private GameObject map;
     void Update()
     {
@@ -36,7 +35,6 @@ public class OpenMap : MonoBehaviour
             {
                 advertisement.SetActive(false);
                 advertisementBtn.SetActive(false);
-                hideMap.SetActive(false);
                 map.SetActive(true);
                 watchedAd = true;
                 isRight = false;
