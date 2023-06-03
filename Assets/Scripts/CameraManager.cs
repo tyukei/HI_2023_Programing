@@ -147,7 +147,7 @@ public class CameraManager : MonoBehaviour
             //hrb.AddForce(new Vector3(0.0f, 200.0f, 0.0f), ForceMode.Impulse);
             //hrb.position = hrb.position + (transform.up*jumpPower);
             //hrb.AddForce(transform.up * jumpPower, ForceMode.Impulse);
-            hrb.AddForce(new Vector3(0.0f, 10.0f, 0.0f), ForceMode.Impulse);
+            StartCoroutine("JumpCoroutine");
         }
         if (Input.GetKey(KeyCode.Joystick1Button10) || Input.GetKey(KeyCode.Joystick2Button10)
         || Input.GetKey(KeyCode.Joystick1Button11) || Input.GetKey(KeyCode.Joystick2Button11))
@@ -202,4 +202,15 @@ public class CameraManager : MonoBehaviour
         Debug.Log(other.gameObject.name);
     }
     */
+
+    IEnumerator JumpCoroutine()
+    {
+        if (isGround)
+        {
+            isGround = false;
+            hrb.AddForce(new Vector3(0.0f, 10.0f, 0.0f), ForceMode.Impulse);
+            yield return new WaitForSeconds(3f);
+            isGround = true;
+        }
+    }
 }
