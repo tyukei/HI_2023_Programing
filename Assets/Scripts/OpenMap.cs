@@ -32,7 +32,7 @@ public class OpenMap : MonoBehaviour
             if (!isOpenAd)
             {
                 isOpenAd = true;
-                advertisement.SetActive(true);
+                advertisement.SetActive(true); // https://www.irasutoya.com/2018/03/blog-post_618.html
                 yield return new WaitForSeconds(3f);
                 advertisementBtn.SetActive(true);
                 isRight = false;
