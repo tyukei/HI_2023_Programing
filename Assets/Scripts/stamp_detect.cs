@@ -39,7 +39,7 @@ public class stamp_detect : MonoBehaviour
     IEnumerator BecomeDark_Light()
     {
         if(fadeout == true){
-            int black_time = 10;
+            int black_time = 12;
             fadeout = false;
             audioSource.PlayOneShot(audioSource.clip);
             while(alpha <= 1){
@@ -52,7 +52,7 @@ public class stamp_detect : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
             while(alpha > 0){
-                alpha -= 0.01f;
+                alpha -= 0.04f;
                 fadealpha.color = new Color(0, 0, 0, alpha);
                 yield return new WaitForSeconds(0.1f);
             }
