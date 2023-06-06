@@ -21,15 +21,15 @@ public class Pause : MonoBehaviour
         }
 
         if(isLeft == true){
-            if(KeyDef.R() && KeyDef.L()){
+            if(KeyDef.L()){ // KeyDef.R() && KeyDef.L() -> KeyDef.R() && KeyDef.L() -> KeyDef.L() 
                 isLeft = false;
-                OnClickLR();
+                OnClick_Lbtn();
 
             }
 
-            if(KeyDef.Right()){
+            if(KeyDef.R()){ // KeyDef.Right() -> KeyDef.Left() -> KeyDef.R() 
                 isLeft = false;
-                OnClickRightArrow();
+                OnClick_Rbtn();
             }
 
         }
@@ -41,7 +41,8 @@ public class Pause : MonoBehaviour
         Instantiate(pausePanel);
         timer.Pause();
     }
-    public void OnClickLR(){
+    // Giveup
+    public void OnClick_Lbtn(){
         timer.Resume();
         // destory all Pause_Canvas(Clone)
         GameObject[] pauseCanvas = GameObject.FindGameObjectsWithTag("Pause");
@@ -50,7 +51,9 @@ public class Pause : MonoBehaviour
         }
         SceneManager.LoadScene("StartScene");
     }
-    public void OnClickRightArrow(){
+
+    // Resume
+    public void OnClick_Rbtn(){
         timer.Resume();
         // destory all Pause_Canvas(Clone)
         GameObject[] pauseCanvas = GameObject.FindGameObjectsWithTag("Pause");

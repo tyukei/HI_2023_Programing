@@ -11,7 +11,6 @@ public class CameraManager : MonoBehaviour
     float speed;
     float jumpPower;
     private bool isGround;
-    //int speed_flag;
 
     void Start()
     {
@@ -21,7 +20,6 @@ public class CameraManager : MonoBehaviour
         speed = 3.0f;
         jumpPower = 10.0f;
         isGround = true;
-        //speed_flag = 0;
     }
 
     void FixedUpdate()
@@ -108,25 +106,12 @@ public class CameraManager : MonoBehaviour
 
         /*
         if(Input.GetKey(KeyCode.Joystick1Button0) || Input.GetKey(KeyCode.Joystick2Button0)){
-              //ジョイコンLの横持ちの時の下ボタンの反応を確認 or ジョイコンRのAボタン
-
-              if(speed_flag == 0){
-                speed_flag = 1;
-                speed = 15.0f;
-                Debug.Log("加速");
-              }
-
-          }
-          if(Input.GetKeyUp(KeyCode.Joystick1Button0) || Input.GetKeyUp(KeyCode.Joystick2Button0)){
-              //ジョイコンLの横持ちの時の下ボタンの反応を確認 or ジョイコンRのAボタン
-
-              if(speed_flag == 1){
-                speed_flag = 0;
-                speed = 3.0f;
-                Debug.Log("減速");
-              }
-
-          }*/
+            //ジョイコンLの横持ちの時の下ボタンの反応を確認 or ジョイコンRのAボタン
+        }
+        if(Input.GetKeyUp(KeyCode.Joystick1Button0) || Input.GetKeyUp(KeyCode.Joystick2Button0)){
+            //ジョイコンLの横持ちの時の下ボタンの反応を確認 or ジョイコンRのAボタン
+        }
+        */
 
         if (Input.GetKey(KeyCode.Joystick1Button1) || Input.GetKey(KeyCode.Joystick2Button1))
         {
@@ -142,11 +127,6 @@ public class CameraManager : MonoBehaviour
         {
             //ジョイコンLの横持ちの時の上ボタンの反応を確認 or ジョイコンRのYボタン
             //Debug.Log("上押した");
-            //hrb.AddForce(new Vector3(0, 100, 0));
-            //hrb.velocity = new Vector3(hrb.velocity.x, 2, hrb.velocity.z);
-            //hrb.AddForce(new Vector3(0.0f, 200.0f, 0.0f), ForceMode.Impulse);
-            //hrb.position = hrb.position + (transform.up*jumpPower);
-            //hrb.AddForce(transform.up * jumpPower, ForceMode.Impulse);
             StartCoroutine("JumpCoroutine");
         }
         if (Input.GetKey(KeyCode.Joystick1Button10) || Input.GetKey(KeyCode.Joystick2Button10)
@@ -208,7 +188,7 @@ public class CameraManager : MonoBehaviour
         if (isGround)
         {
             isGround = false;
-            hrb.AddForce(new Vector3(0.0f, 10.0f, 0.0f), ForceMode.Impulse);
+            hrb.AddForce(new Vector3(0.0f, jumpPower, 0.0f), ForceMode.Impulse);
             yield return new WaitForSeconds(3f);
             isGround = true;
         }
