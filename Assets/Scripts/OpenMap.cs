@@ -10,6 +10,12 @@ public class OpenMap : MonoBehaviour
     [SerializeField] private GameObject advertisement;
     [SerializeField] private GameObject advertisementBtn;
     [SerializeField] private GameObject map;
+    void Start(){
+        isRight = false;
+        isOpenAd = false;
+        watchedAd = false;
+    }
+
     void Update()
     {
         if (KeyDef.Right() && !watchedAd)

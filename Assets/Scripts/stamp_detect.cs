@@ -52,7 +52,7 @@ public class stamp_detect : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
             while(alpha > 0){
-                alpha -= 0.05f;
+                alpha -= 0.01f;
                 fadealpha.color = new Color(0, 0, 0, alpha);
                 yield return new WaitForSeconds(0.1f);
             }

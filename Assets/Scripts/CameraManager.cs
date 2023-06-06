@@ -17,8 +17,8 @@ public class CameraManager : MonoBehaviour
         tf = this.gameObject.GetComponent<Transform>(); //Main CameraのTransformを取得する。
         cam = this.gameObject.GetComponent<Camera>(); //Main CameraのCameraを取得する。
         hrb = transform.parent.gameObject.GetComponent<Rigidbody>(); //Human（親オブジェクト）のRigidbodyを取得する。
-        speed = 3.0f;
-        jumpPower = 10.0f;
+        speed = 2.0f;
+        jumpPower = 5.0f;
         isGround = true;
     }
 
