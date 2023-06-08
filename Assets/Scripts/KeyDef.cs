@@ -23,27 +23,27 @@ public class KeyDef
     }
     public static bool StickUp()
     {
-        return Input.GetAxis("Horizontal1") > 0 || Input.GetAxis(KeyCode.W.ToString()) > 0;
+        return Input.GetAxis("Horizontal1") > 0 || Input.GetKey(KeyCode.W);
     }
     public static bool StickDown()
     {
-        return Input.GetAxis("Horizontal1") < 0 || Input.GetAxis(KeyCode.S.ToString()) < 0;
+        return Input.GetAxis("Horizontal1") < 0 || Input.GetKey(KeyCode.S);
     }
     public static bool StickRight()
     {
-        return Input.GetAxis("Vertical1") > 0 || Input.GetAxis(KeyCode.D.ToString()) > 0;
+        return Input.GetAxis("Vertical1") > 0 || Input.GetKey(KeyCode.D);
     }
     public static bool StickLeft()
     {
-        return Input.GetAxis("Vertical1") < 0 || Input.GetAxis(KeyCode.A.ToString()) < 0;
+        return Input.GetAxis("Vertical1") < 0 || Input.GetKey(KeyCode.A);
     }
     public static bool L()
     {
-        return Input.GetKey(KeyCode.Joystick1Button4) || Input.GetKey(KeyCode.L);
+        return Input.GetKey(KeyCode.Joystick1Button4) || Input.GetKey(KeyCode.Joystick2Button5) || Input.GetKey(KeyCode.L);
     }
     public static bool R()
     {
-        return Input.GetKey(KeyCode.Joystick1Button5) || Input.GetKey(KeyCode.K);
+        return Input.GetKey(KeyCode.Joystick1Button5) || Input.GetKey(KeyCode.Joystick2Button4) || Input.GetKey(KeyCode.R);
     }
     public static bool ALLStick()
     {
