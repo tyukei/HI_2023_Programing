@@ -7,12 +7,21 @@ using UnityEngine.UI;
 public class StartController : MonoBehaviour
 {
     [SerializeField] private Image startbutton;
+    [SerializeField] private GameObject tutorial;
     private float alpha; 
 
     void Start(){
         alpha = startbutton.color.a;
         StartCoroutine(BecomeDark_Light());
-        StartCoroutine(StartButtonCoroutine());
+    }
+
+    void Update(){
+        if(KeyDef.Right()  && tutorial.activeSelf == false){
+            OnClickStart();
+        }
+        if(KeyDef.Left() && tutorial.activeSelf == false){
+            StartCoroutine(Tutorial());
+        }
     }
 
     IEnumerator BecomeDark_Light(){
@@ -30,16 +39,11 @@ public class StartController : MonoBehaviour
                 }
             }
         }
-        yield break;
     }
 
-    IEnumerator StartButtonCoroutine(){
-        while(true){
-            if(KeyDef.ALLKey()){
-                OnClickStart();
-            }
-            yield return null;
-        }
+    IEnumerator Tutorial(){
+        yield return new WaitForSeconds(0.5f);
+        tutorial.SetActive(true);
     }
 
     public void OnClickStart(){

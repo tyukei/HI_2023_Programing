@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class OpenMap : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class OpenMap : MonoBehaviour
     [SerializeField] private GameObject advertisement;
     [SerializeField] private GameObject advertisementBtn;
     [SerializeField] private GameObject map;
+    [SerializeField] private TextMeshProUGUI uiText;
     void Start(){
         isRight = false;
         isOpenAd = false;
@@ -33,7 +36,14 @@ public class OpenMap : MonoBehaviour
             {
                 isOpenAd = true;
                 advertisement.SetActive(true); // https://www.irasutoya.com/2018/03/blog-post_618.html
-                yield return new WaitForSeconds(3f);
+                uiText.text = "5";
+                yield return new WaitForSeconds(1f);
+                uiText.text = "4";
+                yield return new WaitForSeconds(1f);
+                uiText.text = "3";
+                yield return new WaitForSeconds(1f);
+                uiText.text = "2";
+                yield return new WaitForSeconds(1f);
                 advertisementBtn.SetActive(true);
                 isRight = false;
             }
