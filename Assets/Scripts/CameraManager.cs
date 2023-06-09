@@ -48,6 +48,10 @@ public class CameraManager : MonoBehaviour
                 //Debug.Log("通常");           
             }
 
+            if(pause.activeSelf){ //ポーズ中なら
+                speed = 0.0f;
+            }
+
             // スティックの倒す向きで動く方向を変える
             //if (Input.GetAxis("Horizontal1") < 0)
             if(KeyDef.StickUp())
@@ -78,6 +82,10 @@ public class CameraManager : MonoBehaviour
             {
                 speed = 2.0f;
                 //Debug.Log("通常");           
+            }
+
+            if(pause.activeSelf){ //ポーズ中なら
+                speed = 0.0f;
             }
 
             // スティックの倒す向きで動く方向を変える
