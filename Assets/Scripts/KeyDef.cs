@@ -23,11 +23,11 @@ public class KeyDef
     }
     public static bool StickUp()
     {
-        return Input.GetAxis("Horizontal1") > 0 || Input.GetKey(KeyCode.W);
+        return Input.GetAxis("Horizontal1") < 0 || Input.GetKey(KeyCode.W);
     }
     public static bool StickDown()
     {
-        return Input.GetAxis("Horizontal1") < 0 || Input.GetKey(KeyCode.S);
+        return Input.GetAxis("Horizontal1") > 0 || Input.GetKey(KeyCode.S);
     }
     public static bool StickRight()
     {

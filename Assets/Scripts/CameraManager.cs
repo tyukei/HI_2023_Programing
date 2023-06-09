@@ -19,7 +19,7 @@ public class CameraManager : MonoBehaviour
         cam = this.gameObject.GetComponent<Camera>(); //Main CameraのCameraを取得する。
         hrb = transform.parent.gameObject.GetComponent<Rigidbody>(); //Human（親オブジェクト）のRigidbodyを取得する。
         speed = 2.0f;
-        jumpPower = 5.0f;
+        jumpPower = 4.0f;
         isGround = true;
     }
 
@@ -39,12 +39,12 @@ public class CameraManager : MonoBehaviour
             if(KeyDef.Down())
             {
                 //ジョイコンLの横持ちの時の下ボタンの反応を確認 or ジョイコンRのAボタン
-                speed = 10.0f;
+                speed = 6.0f;
                 //Debug.Log("加速");           
             }
             else
             {
-                speed = 3.0f;
+                speed = 2.0f;
                 //Debug.Log("通常");           
             }
 
@@ -71,12 +71,12 @@ public class CameraManager : MonoBehaviour
             if(KeyDef.Down())
             {
                 //ジョイコンLの横持ちの時の下ボタンの反応を確認 or ジョイコンRのAボタン
-                speed = 10.0f;
+                speed = 6.0f;
                 //Debug.Log("加速");           
             }
             else
             {
-                speed = 3.0f;
+                speed = 2.0f;
                 //Debug.Log("通常");           
             }
 
