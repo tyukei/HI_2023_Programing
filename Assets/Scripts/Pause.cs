@@ -96,6 +96,9 @@ public class Pause : MonoBehaviour
                 map.SetActive(true);
                 watchedAd = true;
                 isRight = false;
+                // 広告表示後に自動でゲームスタート
+                timer.Resume();
+                pausePanel.SetActive(false);
             }
         }
     }
