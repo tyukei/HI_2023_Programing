@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public static float time;
+    float temtime;
+    [SerializeField] private GameObject pause;
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +24,17 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(Goal.goal == false){
-        time += Time.deltaTime;
-        //}
 
+        //if(Goal.goal == false){
+            if(!pause.activeSelf){
+        time += Time.deltaTime;
+            }
+        //}
         // float t = Mathf.FloorToInt(time);        //秒表示
         float t =  Mathf.Floor(time * 100) / 100;   //ミリ秒表示
         Text uiText = GetComponent<Text> ();
         uiText.text = "Time : " + t;
+        
     }
 
     public void Pause(){

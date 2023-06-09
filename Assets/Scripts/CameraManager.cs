@@ -11,6 +11,7 @@ public class CameraManager : MonoBehaviour
     float speed;
     float jumpPower;
     private bool isGround;
+    [SerializeField] private GameObject pause;
 
     void Start()
     {
@@ -154,14 +155,22 @@ public class CameraManager : MonoBehaviour
         //if (Input.GetKey(KeyCode.Joystick1Button4) || Input.GetKey(KeyCode.Joystick2Button5))
         if(KeyDef.L())
         {
+            if(pause.activeSelf){
+                StartCoroutine("PauseCoroutine");
+            }else{
             //ジョイコンの接続順で変わるため、左右逆転するかもしれないです
             transform.Rotate(new Vector3(0.0f, -2.0f, 0.0f)); //カメラを左へ回転。
+            }
         }
         //if (Input.GetKey(KeyCode.Joystick1Button5) || Input.GetKey(KeyCode.Joystick2Button4))
         if(KeyDef.R())
         {
+            if(pause.activeSelf){
+                StartCoroutine("PauseCoroutine");
+            }else{
             //ジョイコンの接続順で変わるため、左右逆転するかもしれないです
             transform.Rotate(new Vector3(0.0f, 2.0f, 0.0f)); //カメラを右へ回転。
+            }
         }
 
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.UpArrow)) //左側のShiftと上キーが押されていれば
@@ -207,5 +216,10 @@ public class CameraManager : MonoBehaviour
             yield return new WaitForSeconds(3f);
             isGround = true;
         }
+    }
+    
+    IEnumerator PauseCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
     }
 }

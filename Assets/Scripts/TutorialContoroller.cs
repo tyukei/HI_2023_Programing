@@ -13,8 +13,10 @@ public class TutorialContoroller : MonoBehaviour
     }
 
     IEnumerator CheckKey(){
+        yield return new WaitForSeconds(0.5f);
         while(true){
         if(KeyDef.Right() && tutorial_Canvas.activeSelf == true){
+            Debug.Log("Right");
             if(tutorial1.activeSelf){
                 tutorial1.SetActive(false);
                 tutorial2.SetActive(true);
@@ -27,6 +29,7 @@ public class TutorialContoroller : MonoBehaviour
             }
         }
         if(KeyDef.Left() && tutorial_Canvas.activeSelf == true){
+            Debug.Log("Left");
             yield return new WaitForSeconds(0.5f);
             tutorial_Canvas.SetActive(false);
         }
