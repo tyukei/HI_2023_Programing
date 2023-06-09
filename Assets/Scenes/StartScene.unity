@@ -8049,6 +8049,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1369174210150118555, guid: a072c5ae5c14dc142bfa1e7c1ee20a8b, type: 3}
+      propertyPath: m_text
+      value: 'Right... joystick right
+
+        Left...joystick left'
+      objectReference: {fileID: 0}
     - target: {fileID: 1429048496798371950, guid: a072c5ae5c14dc142bfa1e7c1ee20a8b, type: 3}
       propertyPath: m_Name
       value: Toutorial_Canvas
@@ -8056,6 +8062,12 @@ PrefabInstance:
     - target: {fileID: 1429048496798371950, guid: a072c5ae5c14dc142bfa1e7c1ee20a8b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497516420325618548, guid: a072c5ae5c14dc142bfa1e7c1ee20a8b, type: 3}
+      propertyPath: m_text
+      value: 'Forward... joystick up
+
+        Back...joystick down'
       objectReference: {fileID: 0}
     - target: {fileID: 6401902927730301083, guid: a072c5ae5c14dc142bfa1e7c1ee20a8b, type: 3}
       propertyPath: m_Pivot.x
